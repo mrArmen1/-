@@ -1,0 +1,142 @@
+unit Unit2;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.OleCtrls, SHDocVw, Vcl.Menus,
+  Vcl.MPlayer, Vcl.StdCtrls;
+
+type
+  Thtml = class(TForm)
+    WebBrowser1: TWebBrowser;
+    MainMenu1: TMainMenu;
+    N1: TMenuItem;
+    N3: TMenuItem;
+    N5: TMenuItem;
+    N2: TMenuItem;
+    N6: TMenuItem;
+    N4: TMenuItem;
+    N8: TMenuItem;
+    N9: TMenuItem;
+    N10: TMenuItem;
+    N11: TMenuItem;
+    MediaPlayer1: TMediaPlayer;
+    N7: TMenuItem;
+    N12: TMenuItem;
+    N13: TMenuItem;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure N3Click(Sender: TObject);
+    procedure N5Click(Sender: TObject);
+    procedure N6Click(Sender: TObject);
+    procedure N8Click(Sender: TObject);
+    procedure N9Click(Sender: TObject);
+    procedure N10Click(Sender: TObject);
+    procedure N11Click(Sender: TObject);
+    procedure N7Click(Sender: TObject);
+    procedure N12Click(Sender: TObject);
+    procedure N13Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  html: Thtml;
+path:string;
+implementation
+
+{$R *.dfm}
+
+uses Unit1;
+
+procedure Thtml.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Home.show;
+mediaplayer1.stop;
+mediaplayer1.filename:='None';
+end;
+
+procedure Thtml.FormCreate(Sender: TObject);
+begin
+path:=extractfiledir(Application.ExeName)
+end;
+
+procedure Thtml.N10Click(Sender: TObject);
+begin
+mediaplayer1.stop;
+WebBrowser1.navigate(path+'Data\sinagoga.html');
+mediaplayer1.filename:='None';
+mediaplayer1.filename:=path+'Data\sinagoga.mp3';
+mediaplayer1.open;
+end;
+
+procedure Thtml.N11Click(Sender: TObject);
+begin
+mediaplayer1.stop;
+html.WebBrowser1.navigate(path+'Data\new_castle.htm');
+mediaplayer1.filename:='None';
+mediaplayer1.filename:=path+'Data\new_castle.mp3';
+mediaplayer1.open;
+end;
+
+procedure Thtml.N12Click(Sender: TObject);
+begin
+mediaplayer1.stop;
+end;
+
+procedure Thtml.N13Click(Sender: TObject);
+begin
+mediaplayer1.stop;
+WebBrowser1.navigate(path+'Data\puppet.htm');
+mediaplayer1.filename:='None';
+mediaplayer1.filename:=path+'Data\puppet.mp3';
+mediaplayer1.open;
+end;
+
+procedure Thtml.N3Click(Sender: TObject);
+begin
+Home.show;
+html.Close
+end;
+
+procedure Thtml.N5Click(Sender: TObject);
+begin
+application.Terminate;
+end;
+
+procedure Thtml.N6Click(Sender: TObject);
+begin
+mediaplayer1.stop;
+mediaplayer1.filename:='None';
+WebBrowser1.navigate(path+'Data\Koloja.html');
+mediaplayer1.filename:=path+'Data\Koloja.mp3';
+mediaplayer1.open;
+end;
+
+procedure Thtml.N7Click(Sender: TObject);
+begin
+mediaplayer1.play;
+end;
+
+procedure Thtml.N8Click(Sender: TObject);
+begin
+mediaplayer1.stop;
+WebBrowser1.navigate(path+'Data\old_castle.html');
+mediaplayer1.filename:='None';
+mediaplayer1.filename:=path+'Data\old_castle.mp3';
+mediaplayer1.open;
+end;
+
+procedure Thtml.N9Click(Sender: TObject);
+begin
+ mediaplayer1.stop;
+ WebBrowser1.navigate(path+'Data\Farnij.html');
+ mediaplayer1.filename:='None';
+ mediaplayer1.filename:=path+'Data\farnij.mp3';
+ mediaplayer1.open;
+end;
+
+end.

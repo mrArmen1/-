@@ -1,0 +1,18 @@
+program Project1;
+
+uses
+  Vcl.Forms,
+  Unit1 in 'Unit1.pas' {qwe},
+  Unit2 in 'Unit2.pas' {Koloja1},
+  Unit3 in 'Unit3.pas' {Home};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(Tqwe, qwe);
+  Application.CreateForm(TKoloja1, Koloja1);
+  Application.CreateForm(THome, Home);
+  Application.Run;
+end.

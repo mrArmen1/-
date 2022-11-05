@@ -1,0 +1,136 @@
+unit Unit2;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.OleCtrls, SHDocVw, Vcl.Menus,
+  Vcl.MPlayer, Vcl.StdCtrls;
+
+type
+  Thtml = class(TForm)
+    WebBrowser1: TWebBrowser;
+    MainMenu1: TMainMenu;
+    N1: TMenuItem;
+    N3: TMenuItem;
+    N5: TMenuItem;
+    N2: TMenuItem;
+    N6: TMenuItem;
+    N4: TMenuItem;
+    N8: TMenuItem;
+    N9: TMenuItem;
+    N10: TMenuItem;
+    N11: TMenuItem;
+    MediaPlayer1: TMediaPlayer;
+    N7: TMenuItem;
+    N12: TMenuItem;
+    N13: TMenuItem;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure N3Click(Sender: TObject);
+    procedure N5Click(Sender: TObject);
+    procedure N6Click(Sender: TObject);
+    procedure N8Click(Sender: TObject);
+    procedure N9Click(Sender: TObject);
+    procedure N10Click(Sender: TObject);
+    procedure N11Click(Sender: TObject);
+    procedure N7Click(Sender: TObject);
+    procedure N12Click(Sender: TObject);
+    procedure N13Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  html: Thtml;
+
+implementation
+
+{$R *.dfm}
+
+uses Unit1;
+
+procedure Thtml.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Home.show;
+mediaplayer1.stop;
+mediaplayer1.filename:='None';
+end;
+
+procedure Thtml.N10Click(Sender: TObject);
+begin
+mediaplayer1.stop;
+WebBrowser1.navigate(ExtractFilePath(paramstr(0))+'Data\Синагога.html');
+mediaplayer1.filename:='None';
+mediaplayer1.filename:=ExtractFilePath(paramstr(0))+'Data\Синагога.mp3';
+mediaplayer1.open;
+end;
+
+procedure Thtml.N11Click(Sender: TObject);
+begin
+mediaplayer1.stop;
+html.WebBrowser1.navigate(ExtractFilePath(paramstr(0))+'Data\Новый замок.htm');
+mediaplayer1.filename:='None';
+mediaplayer1.filename:=ExtractFilePath(paramstr(0))+'Data\Новый замок.mp3';
+mediaplayer1.open;
+end;
+
+procedure Thtml.N12Click(Sender: TObject);
+begin
+mediaplayer1.stop;
+end;
+
+procedure Thtml.N13Click(Sender: TObject);
+begin
+mediaplayer1.stop;
+WebBrowser1.navigate(ExtractFilePath(paramstr(0))+'Data\Театр кукол.htm');
+mediaplayer1.filename:='None';
+mediaplayer1.filename:=ExtractFilePath(paramstr(0))+'Data\Театр кукол.mp3';
+mediaplayer1.open;
+end;
+
+procedure Thtml.N3Click(Sender: TObject);
+begin
+Home.show;
+html.Close
+end;
+
+procedure Thtml.N5Click(Sender: TObject);
+begin
+application.Terminate;
+end;
+
+procedure Thtml.N6Click(Sender: TObject);
+begin
+mediaplayer1.stop;
+mediaplayer1.filename:='None';
+WebBrowser1.navigate(ExtractFilePath(paramstr(0))+'Data\Коложа история.html');
+mediaplayer1.filename:=ExtractFilePath(paramstr(0))+'Data\Коложа.mp3';
+mediaplayer1.open;
+end;
+
+procedure Thtml.N7Click(Sender: TObject);
+begin
+mediaplayer1.play;
+end;
+
+procedure Thtml.N8Click(Sender: TObject);
+begin
+mediaplayer1.stop;
+WebBrowser1.navigate(ExtractFilePath(paramstr(0))+'Data\Старый замок.html');
+mediaplayer1.filename:='None';
+mediaplayer1.filename:=ExtractFilePath(paramstr(0))+'Data\Старый замок.mp3';
+mediaplayer1.open;
+end;
+
+procedure Thtml.N9Click(Sender: TObject);
+begin
+ mediaplayer1.stop;
+ WebBrowser1.navigate(ExtractFilePath(paramstr(0))+'Data\Фарный костёл.html');
+ mediaplayer1.filename:='None';
+ mediaplayer1.filename:=ExtractFilePath(paramstr(0))+'Data\Фарный.mp3';
+ mediaplayer1.open;
+end;
+
+end.
